@@ -3,6 +3,7 @@ package com.hanker.faseec.example;
 import android.app.Application;
 
 import com.flowbank.latte.app.Latte;
+import com.joanzapata.iconify.fonts.FontAwesomeModule;
 
 /**
  * @auther jh
@@ -15,6 +16,10 @@ public class ExampleApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Latte.init(this).withApiHost("http://127.0.0.1").configure();
+        Latte.init(this)
+                .withApiHost("http://127.0.0.1")
+                .withIcon(new FontAwesomeModule())
+                .withIcon(new FontAwesomeModule())
+                .configure();
     }
 }
