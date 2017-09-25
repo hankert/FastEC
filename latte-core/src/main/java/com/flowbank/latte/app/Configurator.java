@@ -14,11 +14,12 @@ import java.util.WeakHashMap;
 
 public class Configurator {
 
-    private static final WeakHashMap<String, Object> LATTE_CONFIGS = new WeakHashMap<>();
-    private static final ArrayList<IconFontDescriptor> ICONS = new ArrayList<>();
+    private static final WeakHashMap<String, Object> LATTE_CONFIGS = new WeakHashMap<>();// 键值对不再引用就清除了
+    private static final ArrayList<IconFontDescriptor> ICONS = new ArrayList<>();// 这个会伴随整个生命周期
 
 
     private Configurator(){
+
         LATTE_CONFIGS.put(ConfigType.CONFIT_READY.name(), false);
     }
 
@@ -35,6 +36,7 @@ public class Configurator {
     }
 
     public final void configure(){
+        initIcons();
         LATTE_CONFIGS.put(ConfigType.CONFIT_READY.name(),  true);
     }
     public final Configurator withApiHost(String host){
