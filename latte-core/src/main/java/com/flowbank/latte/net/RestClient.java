@@ -1,10 +1,14 @@
 package com.flowbank.latte.net;
 
+import android.content.Context;
+
 import com.flowbank.latte.net.callback.IError;
 import com.flowbank.latte.net.callback.IFailure;
 import com.flowbank.latte.net.callback.IRequest;
 import com.flowbank.latte.net.callback.ISuccess;
 import com.flowbank.latte.net.callback.RequestCallbacks;
+import com.flowbank.latte.ui.LatteLoader;
+import com.flowbank.latte.ui.LoaderStyle;
 
 import java.util.Map;
 
@@ -28,10 +32,12 @@ public class RestClient {
     private final IError ERROR;
     private final ISuccess SUCCESS;
     private final RequestBody BODY;
+    private final LoaderStyle LOADER_STYLE;
+    private final Context CONTEXT;
 
     public RestClient(String url, Map<String, Object> params,
                       IRequest request, IFailure failure, IError error,
-                      ISuccess success, RequestBody body) {
+                      ISuccess success, RequestBody body, LoaderStyle loader_style, Context context) {
         this.URL = url;
         PARAMS.putAll(params);
         this.REQUEST = request;
@@ -39,6 +45,8 @@ public class RestClient {
         this.ERROR = error;
         this.SUCCESS = success;
         this.BODY = body;
+        this.CONTEXT = context;
+        this.LOADER_STYLE = loader_style;
     }
 
     public static RestClientBuilder builder() {
@@ -53,6 +61,10 @@ public class RestClient {
         if (REQUEST != null) {
             REQUEST.onRequestStart();
         }
+        if (LOADER_STYLE != null){
+            LatteLoader.showLoading(CONTEXT);
+        }
+
         switch (method) {
             case GET:
                 call = service.get(URL, PARAMS);
@@ -80,7 +92,8 @@ public class RestClient {
                 REQUEST,
                 FAILURE,
                 ERROR,
-                SUCCESS
+                SUCCESS,
+                LOADER_STYLE
         );
     }
 
