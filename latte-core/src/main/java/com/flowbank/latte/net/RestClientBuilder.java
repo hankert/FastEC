@@ -8,6 +8,7 @@ import com.flowbank.latte.net.callback.IRequest;
 import com.flowbank.latte.net.callback.ISuccess;
 import com.flowbank.latte.ui.LoaderStyle;
 
+import java.io.File;
 import java.util.Map;
 import java.util.WeakHashMap;
 
@@ -32,6 +33,7 @@ public class RestClientBuilder {
     private RequestBody mBody = null;
     private Context mContext = null;
     private LoaderStyle mLoaderStyle = null;
+    private File mFile = null;
 
     RestClientBuilder() {
 
@@ -48,6 +50,21 @@ public class RestClientBuilder {
     public final RestClientBuilder params(WeakHashMap<String, Object> params) {
 
         PARAMS.putAll(params);
+        return this;
+
+    }
+
+    public final RestClientBuilder file(File file) {
+
+        this.mFile = file;
+
+        return this;
+
+    }
+    public final RestClientBuilder file(String file) {
+
+        this.mFile = new File(file);
+
         return this;
 
     }
@@ -111,7 +128,7 @@ public class RestClientBuilder {
 
 
     public final RestClient build() {
-        return new RestClient(mUrl, PARAMS, mRequest, mFailure, mError, mSuccess, mBody, mLoaderStyle, mContext);
+        return new RestClient(mUrl, PARAMS, mRequest, mFailure, mError, mSuccess, mBody, mLoaderStyle, mContext, mFile);
     }
 
 
