@@ -6,7 +6,7 @@ import com.flowbank.latte.net.callback.IError;
 import com.flowbank.latte.net.callback.IFailure;
 import com.flowbank.latte.net.callback.IRequest;
 import com.flowbank.latte.net.callback.ISuccess;
-import com.flowbank.latte.ui.LoaderStyle;
+import com.flowbank.latte.ui.loader.LoaderStyle;
 
 import java.io.File;
 import java.util.Map;

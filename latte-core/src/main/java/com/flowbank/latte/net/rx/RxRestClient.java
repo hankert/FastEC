@@ -4,8 +4,8 @@ import android.content.Context;
 
 import com.flowbank.latte.net.HttpMethod;
 import com.flowbank.latte.net.RestCreator;
-import com.flowbank.latte.ui.LatteLoader;
-import com.flowbank.latte.ui.LoaderStyle;
+import com.flowbank.latte.ui.loader.LatteLoader;
+import com.flowbank.latte.ui.loader.LoaderStyle;
 
 import java.io.File;
 import java.util.Map;

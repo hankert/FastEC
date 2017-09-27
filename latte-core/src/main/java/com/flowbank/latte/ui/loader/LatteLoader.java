@@ -1,4 +1,4 @@
-package com.flowbank.latte.ui;
+package com.flowbank.latte.ui.loader;
 
 import android.content.Context;
 import android.support.v7.app.AppCompatDialog;
@@ -7,7 +7,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.flowbank.latte.R;
-import com.flowbank.latte.util.DimenUtil;
+import com.flowbank.latte.util.dimen.DimenUtil;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.ArrayList;

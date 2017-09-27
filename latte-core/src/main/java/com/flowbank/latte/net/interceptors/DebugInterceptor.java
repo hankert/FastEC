@@ -2,7 +2,7 @@ package com.flowbank.latte.net.interceptors;
 
 import android.support.annotation.RawRes;
 
-import com.flowbank.latte.util.FileUtil;
+import com.flowbank.latte.util.file.FileUtil;
 
 import java.io.IOException;
 

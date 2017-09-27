@@ -2,8 +2,8 @@ package com.flowbank.latte.net.callback;
 
 import android.os.Handler;
 
-import com.flowbank.latte.ui.LatteLoader;
-import com.flowbank.latte.ui.LoaderStyle;
+import com.flowbank.latte.ui.loader.LatteLoader;
+import com.flowbank.latte.ui.loader.LoaderStyle;
 
 
 import retrofit2.Call;

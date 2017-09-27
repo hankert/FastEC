@@ -1,4 +1,4 @@
-package com.flowbank.latte.ui;
+package com.flowbank.latte.ui.loader;
 
 import android.content.Context;
 import android.util.Log;

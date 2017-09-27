@@ -1,4 +1,4 @@
-package com.flowbank.latte.util;
+package com.flowbank.latte.util.file;
 
 import android.content.ContentResolver;
 import android.content.Context;

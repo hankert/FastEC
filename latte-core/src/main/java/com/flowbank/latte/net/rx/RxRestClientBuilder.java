@@ -3,7 +3,7 @@ package com.flowbank.latte.net.rx;
 import android.content.Context;
 
 import com.flowbank.latte.net.RestCreator;
-import com.flowbank.latte.ui.LoaderStyle;
+import com.flowbank.latte.ui.loader.LoaderStyle;
 
 import java.io.File;
 import java.util.Map;

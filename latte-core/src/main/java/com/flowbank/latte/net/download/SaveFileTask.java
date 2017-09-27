@@ -7,7 +7,7 @@ import android.os.AsyncTask;
 import com.flowbank.latte.app.Latte;
 import com.flowbank.latte.net.callback.IRequest;
 import com.flowbank.latte.net.callback.ISuccess;
-import com.flowbank.latte.util.FileUtil;
+import com.flowbank.latte.util.file.FileUtil;
 
 import java.io.File;
 import java.io.InputStream;
