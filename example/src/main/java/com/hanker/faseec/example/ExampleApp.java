@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.flowbank.latte.app.Latte;
 import com.flowbank.latte.ec.icon.FontEcModule;
+import com.flowbank.latte.net.interceptors.DebugInterceptor;
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
 
 /**
@@ -18,9 +19,10 @@ public class ExampleApp extends Application {
     public void onCreate() {
         super.onCreate();
         Latte.init(this)
-                .withApiHost("http://127.0.0.1")
                 .withIcon(new FontAwesomeModule())
                 .withIcon(new FontEcModule())
+                .withInterceptor(new DebugInterceptor("index", R.raw.test))
+                .withApiHost("http://127.0.0.1")
                 .configure();
     }
 }
