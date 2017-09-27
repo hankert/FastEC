@@ -35,6 +35,11 @@ public class RestClientBuilder {
     private LoaderStyle mLoaderStyle = null;
     private File mFile = null;
 
+    private String mDownloadDir = null;//存放文件的目录
+    private String mExtension = null;// 文件的后缀
+    private String mName = null;// 文件的名字
+
+
     RestClientBuilder() {
 
     }
@@ -46,6 +51,20 @@ public class RestClientBuilder {
 
     }
 
+    public final RestClientBuilder name(String name) {
+        this.mName = name;
+        return this;
+    }
+
+    public final RestClientBuilder dir(String dir) {
+        this.mDownloadDir = dir;
+        return this;
+    }
+
+    public final RestClientBuilder extension(String extension) {
+        this.mExtension = extension;
+        return this;
+    }
 
     public final RestClientBuilder params(WeakHashMap<String, Object> params) {
 
@@ -128,7 +147,9 @@ public class RestClientBuilder {
 
 
     public final RestClient build() {
-        return new RestClient(mUrl, PARAMS, mRequest, mFailure, mError, mSuccess, mBody, mLoaderStyle, mContext, mFile);
+        return new RestClient(mUrl, PARAMS, mRequest, mFailure, mError,
+                mSuccess, mBody, mLoaderStyle, mContext, mFile,
+                mDownloadDir, mExtension, mName);
     }
 
 

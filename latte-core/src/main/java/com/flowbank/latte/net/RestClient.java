@@ -7,6 +7,7 @@ import com.flowbank.latte.net.callback.IFailure;
 import com.flowbank.latte.net.callback.IRequest;
 import com.flowbank.latte.net.callback.ISuccess;
 import com.flowbank.latte.net.callback.RequestCallbacks;
+import com.flowbank.latte.net.download.DownloadHandler;
 import com.flowbank.latte.ui.LatteLoader;
 import com.flowbank.latte.ui.LoaderStyle;
 
@@ -31,6 +32,10 @@ public class RestClient {
     private final String URL;
     private static final Map<String, Object> PARAMS = RestCreator.getParams();
 
+    private final String DOWNLOAD_DIR;
+    private final String EXTENSION;
+    private final String NAME;
+
     private final IRequest REQUEST;
     private final IFailure FAILURE;
     private final IError ERROR;
@@ -42,7 +47,8 @@ public class RestClient {
 
     public RestClient(String url, Map<String, Object> params,
                       IRequest request, IFailure failure, IError error,
-                      ISuccess success, RequestBody body, LoaderStyle loader_style, Context context, File file) {
+                      ISuccess success, RequestBody body, LoaderStyle loader_style, Context context, File file,
+                      String download_dir, String extension, String name) {
         this.URL = url;
         PARAMS.putAll(params);
         this.REQUEST = request;
@@ -53,6 +59,9 @@ public class RestClient {
         this.CONTEXT = context;
         this.LOADER_STYLE = loader_style;
         this.FILE = file;
+        this.NAME = name;
+        this.DOWNLOAD_DIR = download_dir;
+        this.EXTENSION = extension;
     }
 
     public static RestClientBuilder builder() {
@@ -146,6 +155,10 @@ public class RestClient {
             }
             request(HttpMethod.PUT_RAW);
         }
+    }
+
+    public final void download(){
+        new DownloadHandler(URL, DOWNLOAD_DIR, EXTENSION, NAME, REQUEST, FAILURE, ERROR, SUCCESS).handleDownload();
     }
 
 }

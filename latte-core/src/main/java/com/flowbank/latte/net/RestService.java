@@ -4,6 +4,7 @@ import java.util.Map;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
@@ -45,9 +46,9 @@ public interface RestService {
     @DELETE
     Call<String> delete(@Url String url, @QueryMap Map<String, Object> params);
 
-    @Streaming
+    @Streaming// 一边下载一边写入
     @GET
-    Call<String> download(@Url String url, @QueryMap Map<String, Object> params);
+    Call<ResponseBody> download(@Url String url, @QueryMap Map<String, Object> params);
 
     @Multipart
     @POST

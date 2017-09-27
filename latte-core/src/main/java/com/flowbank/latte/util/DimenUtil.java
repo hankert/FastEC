@@ -1,4 +1,4 @@
-package com.flowbank.latte.ui.util;
+package com.flowbank.latte.util;
 
 import android.content.res.Resources;
 import android.util.DisplayMetrics;
