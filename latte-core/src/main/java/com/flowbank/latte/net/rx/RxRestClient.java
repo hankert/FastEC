@@ -19,7 +19,7 @@ import okhttp3.ResponseBody;
 
 /**
  * @auther jh
- * @des rxjava+retrofit
+ * @des Rxjava+retrofit
  * Created by J.H on 2017/9/26.
  */
 
